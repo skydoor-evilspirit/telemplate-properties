@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${#dates.createNow()}"></h1>
+    <h1 th:text="${#dates.createToday()}"></h1>
+    <h1 th:text="${#dates.format(#dates.createNow(),'yyyy-MM-dd HH:ss:mm')}"></h1>
+
+    <h1 th:text="${#strings.isEmpty(people.name)}"></h1>
+    <h1 th:text="${''==''}"></h1>
+    <h1 th:text="${#strings.equals(people.name,'米九')}"></h1>
+
+</body>
+</html>

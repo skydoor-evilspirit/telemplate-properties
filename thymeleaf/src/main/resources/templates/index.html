@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="普通写法的变量标签加字符串"></p>
+<p th:text="${people.name}+' age is '+${people.age}"></p>
+
+<p th:text="特殊写法的变量标签+字符串"></p>
+<p th:text="|${people.name} age is ${people.age}|"></p>
+
+<p th:text="if标签的判断"></p>
+<p th:text="|${people.name} age is ${people.age}|" th:if="${people.name}=='张三'"></p>
+
+<p th:text="unless除非标签的判断" th:unless="${people.name}=='张三'"></p>
+<p th:text="|${people.name} age is ${people.age}|" th:unless="${people.name}=='张三'"></p>
+
+<div th:switch="${list.size()}">
+    <p th:case="1">list中有一个元素</p>
+    <p th:case="2">list中有两个元素</p>
+    <p th:case="3">list中有三个元素</p>
+</div>
+
+
+<table border="soil">
+    <thead>
+    <tr>
+        <th th:text="name">姓名</th>
+        <th th:text="age">年龄</th>
+        <th th:text="index">从0开始的序号</th>
+        <th th:text="count">从1开始的计数</th>
+        <th th:text="current">现在的这个对象</th>
+        <th th:text="even">偶数返回true</th>
+        <th th:text="odd">奇数返回true</th>
+        <th th:text="first">集合中的第一个元素返回true</th>
+        <th th:text="last">集合中的最后一个元素返回true</th>
+        <th th:text="size">集合中的总数</th>
+    </tr>
+    </thead>
+    <tbody th:each="p:${list}">
+         <tr>
+             <td th:text="${p.name}"></td>
+             <td th:text="${p.age}"></td>
+             <td th:text="${pStat.index}"></td>
+             <td th:text="${pStat.count}"></td>
+             <td th:text="${pStat.current}"></td>
+             <td th:text="${pStat.even}"></td>
+             <td th:text="${pStat.odd}"></td>
+             <td th:text="${pStat.first}"></td>
+             <td th:text="${pStat.last}"></td>
+             <td th:text="${pStat.size}"></td>
+         </tr>
+    </tbody>
+</table>
+</body>
+</html>
